@@ -11,7 +11,7 @@ from src.exchanges.binance.websockets.handlers.orderbook import OrderBookBinance
 from src.exchanges.bybit.websockets.handlers.orderbook import OrderBookBybit
 
 class SharedState:
-    """
+    """hhghghghghg
     Centralizes shared data and configurations for the trading application, including market data
     and trading parameters, and provides utility methods for market metric calculations.
 
