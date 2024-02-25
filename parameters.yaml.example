@@ -1,4 +1,4 @@
-account_size: 100
+account_size: 50
 primary_data_feed: Binance # Choices: ["Binance", "Bybit"]
 
 binance_symbol: ETHUSDT 
