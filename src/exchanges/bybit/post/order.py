@@ -130,6 +130,7 @@ class Order:
         endpoint = self.endpoints.CREATE_ORDER
         side, qty = self._order_to_str_(order)
         payload = self.formats.create_market(side, qty)
+        print(f"Submitting market order: Side={side}, Quantity={qty}")  # Ligne ajoutée pour le debug
         return await self._submit_(endpoint, payload)
 
     async def order_limit(self, order: Tuple[str, float, float]) -> Union[Dict, None]:
@@ -149,6 +150,7 @@ class Order:
         endpoint = self.endpoints.CREATE_ORDER
         side, price, qty = self._order_to_str_(order)
         payload = self.formats.create_limit(side, price, qty)
+        print(f"Submitting limit order: Side={side}, Price={price}, Quantity={qty}")  # Ligne ajoutée pour le debug
         return await self._submit_(endpoint, payload)
 
     async def order_limit_batch(self, orders: List[Tuple[str, float, float]]) -> Union[Dict, None]:
@@ -171,6 +173,7 @@ class Order:
         # Split the orders into chunks of 10 for batch processing
         for i in range(0, len(orders), 10):
             batch_orders = [self._order_to_str_(order) for order in orders[i:i+10]]
+            print(f"Submitting batch limit orders: {batch_orders}")  # Ligne ajoutée pour le debug
             batch_payload = {
                 "category": self.category, 
                 "request": [

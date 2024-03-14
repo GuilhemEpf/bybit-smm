@@ -39,7 +39,7 @@ class BybitPrivatePostClient:
     """
 
     max_retries = 3
-    recv_window = "5000"
+    recv_window = "10000"
     _success_ = ["OK", "success", "SUCCESS", ""]
     _retry_ = [100016] # NOTE: Add more
     _skip_ = [10006, 110001, 110012] # NOTE: Add more
